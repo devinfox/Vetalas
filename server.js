@@ -22,7 +22,7 @@ app.get('/*', function(req, res) {
     res.sendFile(path.join__dirname, 'build', 'index.html');
 });
 
-var port = process.env.PORT || 3002;
+var port = process.env.PORT || 3001;
 
 app.listen(port, function() {
     console.log(`Express app running on port ${port}`);
