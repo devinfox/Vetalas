@@ -8,14 +8,15 @@ var app = express();
 
 require('dotenv').config();
 require('./config/database');
+app.use(bodyParser.json());
 
 app.use(logger('dev'));
 
+app.use("/api/users", require('./routes/api/users'));
 
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use(bodyParser.json());
 
 app.use('/api/products', require('./routes/api/products'));
 

@@ -10,6 +10,9 @@ import Home from './../Home/Home';
 import CataloguePage from '../CataloguePage/CataloguePage';
 import CheckoutPage from '../CheckoutPage/CheckoutPage';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
+import SignupPage from '../SignupPage/SignupPage';
+import LoginPage from '../LoginPage/LoginPage';
+import userService from '../../utils/userService';
 
 
 class App extends Component {
@@ -35,7 +38,19 @@ class App extends Component {
           this.setState({products: data})
     })
   }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({user: null});
+  }
  
+  handleSignup = () => {
+    this.setState({user: userService.getUser()});
+  }
+
+  handleLogin = () => {
+    this.setState({user: userService.getUser()});
+  }
 
   render() {
     return (
@@ -52,6 +67,8 @@ class App extends Component {
                   products={this.state.products}
                 />
               }/>
+              <Route exact path='/signup' render={(props) => <SignupPage {...props} handleSignup={this.handleSignup} /> } />
+              <Route exact path='/login' render={(props) => <LoginPage {...props} handleLogin={this.handleLogin} /> } />
               <Route exact path='/checkout' render={() => 
                 <CheckoutPage />
               }/>
