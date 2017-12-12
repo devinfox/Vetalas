@@ -10,7 +10,7 @@ const NavBar = () => {
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input placeholder="Search..."></input><br />
                 <button type="submit">Submit</button>
-                <Link to="/checkout" className='Cart'><span role="img">🛒</span></Link>
+                <Link to="/checkout" className='Cart'><span role="img">x</span></Link>
             </nav>
         </div>
     );

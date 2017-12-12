@@ -1,0 +1,12 @@
+.Back {
+    padding: 20px;
+    float: left;
+}
+
+.Purchase {
+    margin: 30px;
+}
+
+a {
+    color: orange !important;
+}

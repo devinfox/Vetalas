@@ -1,19 +1,9 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const url = "mongodb://localhost/amaz"
+mongoose.connect('mongodb://localhost/vetalas');
 
-// process.env.DATABASE_URL || 
-mongoose.connect(url)
-mongoose.connection.once('open', function () {
-    console.log(`Mongoose connected to: ${url}`)
+const db = mongoose.connection;
+
+db.once('open', () => {
+  console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
 });
-// mongoose.connect(process.env.DATABASE_URL);
-
-
-var db = mongoose.connection;
-
-// db.once('open', () => {
-//     console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
-// });
-
-module.exports = mongoose

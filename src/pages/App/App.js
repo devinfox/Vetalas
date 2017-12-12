@@ -3,10 +3,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
 } from 'react-router-dom';
 import './App.css';
-import NavBar from './../../components/NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 import Home from './../Home/Home';
 import CataloguePage from '../CataloguePage/CataloguePage';
 import CheckoutPage from '../CheckoutPage/CheckoutPage';
@@ -17,22 +16,26 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      catalog: null,
-      cart: null,
-      search: null
+      products: null,
     }
   }
 
-  handleSearch = () => {
-    fetch('/api/products', {
-      method: 'GET',
-      headers: {'Content-Type': 'application/json'}
-    }).then(res => res.json()).then(response => console.log(response));
-  }
+  // componentDidMount() {
+  //   fetch('/catalogue')
+  //     .then((data) => data.json())
+  //       .then((data) => {
+  //         this.setState({products: data})
+  //   })
+  // }
 
   componentDidMount() {
-    return this.handleSearch();
+    fetch('api/products/catalogue')
+      .then((data) => data.json())
+        .then((data) => {
+          this.setState({products: data})
+    })
   }
+ 
 
   render() {
     return (
@@ -45,8 +48,8 @@ class App extends Component {
                 <Home />
               }/>
               <Route exact path='/catalogue' render={() => 
-                <CataloguePage 
-                  handleSearch={this.handleSearch}
+                <CataloguePage
+                  products={this.state.products}
                 />
               }/>
               <Route exact path='/checkout' render={() => 

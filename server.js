@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
+var app = express();
+
 require('dotenv').config();
 require('./config/database');
-var app = express();
 
 app.use(logger('dev'));
 
@@ -19,7 +20,7 @@ app.use(bodyParser.json());
 app.use('/api/products', require('./routes/api/products'));
 
 app.get('/*', function(req, res) {
-    res.sendFile(path.join__dirname, 'build', 'index.html');
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 var port = process.env.PORT || 3001;
