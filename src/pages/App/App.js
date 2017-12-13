@@ -20,52 +20,53 @@ class App extends Component {
     super();
     this.state = {
       products: null,
+      cart: [],
     }
-  }
-
-  // componentDidMount() {
-  //   fetch('/catalogue')
-  //     .then((data) => data.json())
-  //       .then((data) => {
-  //         this.setState({products: data})
-  //   })
-  // }
-
-  componentDidMount() {
-    fetch('api/products/catalogue')
-      .then((data) => data.json())
-        .then((data) => {
-          this.setState({products: data})
-    })
   }
 
   handleLogout = () => {
     userService.logout();
     this.setState({user: null});
   }
- 
+  
   handleSignup = () => {
     this.setState({user: userService.getUser()});
   }
-
+  
   handleLogin = () => {
     this.setState({user: userService.getUser()});
   }
-
+  
+  componentDidMount() {
+    let user = userService.getUser();
+    this.setState({user});
+    fetch('api/products/catalogue')
+      .then((data) => data.json())
+        .then((data) => {
+          this.setState({products: data})
+    })
+  }
+  
   render() {
     return (
       <div className="App">
         <Router>
           <div>
-            <NavBar />
+            <NavBar 
+            user={this.state.user}
+            handleLogout={this.handleLogout}/>
             <Switch>
               <Route exact path='/' render={() => 
-                <Home />
+                <Home user={this.state.user} />
               }/>
               <Route exact path='/catalogue' render={() => 
                 <CataloguePage
                   products={this.state.products}
                 />
+              // <Route exact path='/catalogue/:id' render={(props) => {
+              //   return <ProductDetailPage id={props.match.params.id} />
+              // }}
+              // />
               }/>
               <Route exact path='/signup' render={(props) => <SignupPage {...props} handleSignup={this.handleSignup} /> } />
               <Route exact path='/login' render={(props) => <LoginPage {...props} handleLogin={this.handleLogin} /> } />
