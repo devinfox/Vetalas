@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 
 class ProductDetailPage extends Component {
-    constructor() {
-        super()
-        this.state = {
-            product: {}
-        }
-    }
-
-    componentDidMount() {
-        console.log('mounted')
-        this.getProduct();
-    }
-
-    getProduct() {
-        fetch('api/products/catalogue' + this.state.id).then(product => this.setState({product: product}))
+    constructor(props) {
+        super(props);
     }
 
     render() {
-        if (this.state.product._id) {
+        if (this.props.product) {
             return (
                 <div>
-                    this is detail page
+                    <img src={this.props.product.image}/>
+                    {this.props.product.name}
                 </div>
             );
         } else {
