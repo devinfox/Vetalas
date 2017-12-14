@@ -18,17 +18,12 @@
 }
 
 .Cart {
-    float: right;
-    padding: 20px;
+    margin-right: -80%;
+    /* display: flex; */
     font-size: 40px;
+    margin: 10px;
 }
 
-.Cart:hover {
-    float: right;
-    padding: 20px;
-    font-size: 40px;
-    text-decoration: none;
-}
 
 .Nav {
     border: 5px;
@@ -37,15 +32,15 @@
 
 .NavBar {
     border: 2px solid black;
+    height: 175px;
 }
 
 .search {
-    border-left: 2px solid black;
     position: relative;
     box-sizing: border-box;
     align-content: center;
     width:50%;
-    max-width:960px;
+    /* max-width:960px; */
     margin:0 auto;
 }
 

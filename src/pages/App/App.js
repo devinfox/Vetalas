@@ -21,7 +21,9 @@ class App extends Component {
   constructor(){
   super();
   this.state = {
-    shoppingCart: []
+    shoppingCart: [],
+    totalPriceArray: [],
+    user: ''
   }
 }
 
@@ -110,6 +112,7 @@ componentDidMount() {
     .then(products => {
       this.setState({products})
   });
+  console.log(this.state.shoppingCart)
 }
 
 // rendering components & pages

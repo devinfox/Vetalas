@@ -17,10 +17,11 @@ const NavBar = (props) => {
         className='NavBar-welcome'>WELCOME, {props.user.name}</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
+         <Link to="/checkout" className='Cart'>🛍</Link>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <h2>{props.cartLength ? <p>Cart: {props.cartLength} </p> : <p></p>}</h2>
-         <Link to="/checkout" className='Cart'><span role="img">🛍</span></Link>
-    
+          <p>
+          </p>
       </div>
       :
       <div>
