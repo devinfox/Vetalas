@@ -18,7 +18,12 @@ import tokenService from '../../utils/tokenService';
 
 
 class App extends Component {
-  state = {};
+  constructor(){
+  super();
+  this.state = {
+    shoppingCart: []
+  }
+}
 
   getCart() {
     if (!this.state.user) return Promise.resolve();
@@ -33,36 +38,47 @@ class App extends Component {
   }
 
  //handle cart
- handleAddToCart(selectedProduct) {
-  let cartItems = this.state.cart;
-  let existingProduct = cartItems.find(product => product.id === selectedProduct.id);
-  if (existingProduct) {
-    cartItems = cartItems.map(product => {
-      if (product.id === selectedProduct.id) {
-        product.qty += 1;
-      }
-      return product;
-    });
-  } else {
-    const newProduct = Object.assign({}, selectedProduct, { qty: 1});
-    cartItems = cartItems.concat([newProduct]);
-  }
-  this.setState({
-    cart: cartItems,
-  });
-}
 
-handleChangeQuantity(selectedProduct, qty) {
-  const cartItems = cartItems.map(product => {
-    if (product.id === selectedProduct.id) {
-      product.qty = qty;
-    }
-    return product;
-  }).filter(product => product.qty > 0);
-  this.setState({
-    cart: cartItems
-  })
-}
+  handleRenderCart = () => {
+    this.setState({shoppingCart: this.state.shoppingCart})
+  }
+
+  getQuantity(array, value) {
+    var ct = 0;
+    array.forEach(elem => (elem === value && ct++));
+    return ct;
+  }
+
+//  handleAddToCart(selectedProduct) {
+//   let cartItems = this.state.cart;
+//   let existingProduct = cartItems.find(product => product.id === selectedProduct.id);
+//   if (existingProduct) {
+//     cartItems = cartItems.map(product => {
+//       if (product.id === selectedProduct.id) {
+//         product.qty += 1;
+//       }
+//       return product;
+//     });
+//   } else {
+//     const newProduct = Object.assign({}, selectedProduct, { qty: 1});
+//     cartItems = cartItems.concat([newProduct]);
+//   }
+//   this.setState({
+//     cart: cartItems,
+//   });
+// }
+
+// handleChangeQuantity(selectedProduct, qty) {
+//   const cartItems = cartItems.map(product => {
+//     if (product.id === selectedProduct.id) {
+//       product.qty = qty;
+//     }
+//     return product;
+//   }).filter(product => product.qty > 0);
+//   this.setState({
+//     cart: cartItems
+//   })
+// }
 
 //handle login 
 handleLogout = () => {
@@ -104,14 +120,19 @@ componentDidMount() {
           <div>
             <NavBar 
             user={this.state.user}
-            handleLogout={this.handleLogout}/>
+            handleLogout={this.handleLogout}
+            cartLength={this.state.shoppingCart.length}
+            />
             <Switch>
               <Route exact path='/' render={() => 
                 <Home user={this.state.user} />
               }/>
-              <Route exact path='/catalogue' render={() => 
+              <Route exact path='/catalogue' render={(props) => 
                 <CataloguePage
+                  user={this.state.user}
                   products={this.state.products}
+                  shoppingCart={this.state.shoppingCart}
+                  handleRenderCart={this.handleRenderCart}
                 />
               }/>
               <Route exact path='/products/:id' render ={(props) => {
@@ -121,8 +142,13 @@ componentDidMount() {
               />
               <Route exact path='/signup' render={(props) => <SignupPage {...props} handleSignup={this.handleSignup} /> } />
               <Route exact path='/login' render={(props) => <LoginPage {...props} handleLogin={this.handleLogin} /> } />
-              <Route exact path='/checkout' render={() => 
-                <CheckoutPage />
+              
+              <Route exact path='/checkout' render={(props) => this.state.user ? <CheckoutPage
+                 getQuantity={this.getQuantity}
+                 cart={this.state.shoppingCart}  
+                 user={this.state.user} />  
+                : <LoginPage {...props} handleLogin={this.handlelogin}/>}
+                />
               }/>
               <Route exact path='/confirmation' render={() => 
                 <ConfirmationPage />

@@ -13,7 +13,14 @@ const CataloguePage = (props) => {
                 <div className="row">
                     <div className="card" style={{width: '20rem'}}>
                 {props.products ?
-                props.products.map((product, idx) => <div className="card-block"> <img className="card-img-top" src={product.image} /> <p className="card-title" key={idx}>{product.name}</p> <p className="card-text">{product.description}</p><p className="card-text">${product.price}</p><Link to={`/products/${product._id}`}>Detail</Link></div>)
+                    props.products.map((product, idx) => 
+                        <div key={idx} className="card-block"> <img className="card-img-top" src= {product.image} /> 
+                            <p className="card-title">{product.name}</p> 
+                                <p className="card-text">{product.description}</p>
+                                    <p className="card-text">${product.price}</p>
+                                        <Link to={`/products/${product._id}`}>Detail</Link>
+                                        {props.user ? <button onClick={() => {props.shoppingCart.push(product); props.handleRenderCart()}} className="btn btn-success">Add To Cart</button> : <Link to='/login' className="btn btn-danger">Login</Link>}
+                                        </div>)
                     :
                     <h1>Loading...</h1>}
         </div>

@@ -5,7 +5,7 @@ import './NavBar.css';
 const NavBar = (props) => {
     let nav = props.user ?
       <div>
-        <nav id="navHeader">
+        
         <Link to="/" className='Logo'>VETALA</Link>
         &nbsp;
         <div className="search">
@@ -18,8 +18,9 @@ const NavBar = (props) => {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <h2>{props.cartLength ? <p>Cart: {props.cartLength} </p> : <p></p>}</h2>
          <Link to="/checkout" className='Cart'><span role="img">🛍</span></Link>
-         </nav>
+    
       </div>
       :
       <div>
