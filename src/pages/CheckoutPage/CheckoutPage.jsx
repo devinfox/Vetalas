@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './CheckoutPage.css';
 import {Link} from 'react-router-dom';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import {Col, Row, Table, Card} from 'react-materialize';
+
 
 const CheckoutPage = (props) => {
         let dupArray = [];
@@ -12,29 +13,33 @@ const CheckoutPage = (props) => {
         });
         return(
             <div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Computed Price</th>
-                        </tr>
+                <Table>
                     {dupArray.map(function(product, idx) {
                             return (
+                                <Row>
+                                <Col m={4}></Col>
+                                <Col m={4}>
                                 <tr key={idx}>
+                                    <Row>
+                                    <Col m={4}>
+                                    <Card>
                                     <td className="cell">{product.name}</td>
-                                    <td className="cell img"><img src={product.image}></img></td>
+                                    <td><img className="small-size" src={product.image}></img></td>
                                     <td className="cell">{props.getQuantity(props.cart, product)}</td>
                                     <td className="cell">{product.price}</td>
                                     <td className="cell">{product.price * props.getQuantity(props.cart, product)}</td>
+                                    <button onClick={() => {props.delete(props.cart, product); props.handleRenderCart()}} className="btn btn-danger">Remove from Cart</button>
+                                    </Card>
+                                    </Col>
+                                    </Row>
                                 </tr>
+                                </Col>
+                            <Col m={4}></Col>
+                                </Row>
                             )
                         }
                     )}
-                    </tbody>
-                    </table> 
+                    </Table> 
             </div>
         )
      
@@ -42,17 +47,5 @@ const CheckoutPage = (props) => {
 }
 
 export default CheckoutPage;
-            // <div className="Catalogue">
-            //     <h1>Checkout</h1>
-            //     <div className="Back">
-            //         <Link to="/catalogue">Back to Catalogue</Link>
-            //     </div>
-            //     <BootstrapTable>
-            //         <TableHeaderColumn dataField='id' isKey>Item</TableHeaderColumn>
-            //         <TableHeaderColumn dataField='name'>Cost</TableHeaderColumn>
-            //         <TableHeaderColumn dataField='price'>Qty.</TableHeaderColumn>
-            //     </BootstrapTable>
-            //     <div className="Purchase">
-            //         <Link to="/confirmation">Purchase</Link>
-            //     </div>
-            // </div>
+
+

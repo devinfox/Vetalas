@@ -6,3 +6,13 @@
     height: 100%;
     width: 100%;
 }
+
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    size: 500px;
+}

@@ -7,6 +7,17 @@
     margin: 30px;
 }
 
+.checkout-image {
+   align-content: center;
+   max-width: 0 auto;
+   max-height: 0 auto;
+}
+
+.small-size {
+    height: 400px;
+    width: auto;
+}
+
 /* a {
     color: black !important;
 } */
