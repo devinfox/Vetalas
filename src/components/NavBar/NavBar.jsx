@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
+import {Button} from 'react-materialize';
 
 const NavBar = (props) => {
     let nav = props.user ?
@@ -10,9 +11,8 @@ const NavBar = (props) => {
         &nbsp;
         <div className="search">
         <input placeholder="Search..."></input>
-        <button type="submit">Submit</button>
+        <Button>Submit</Button>
         </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span 
         className='NavBar-welcome'>WELCOME, {props.user.name}</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -34,10 +34,8 @@ const NavBar = (props) => {
       </div>
   
     return (
-      <div className='NavBar-Background'>
       <div className='NavBar'>
         {nav}
-      </div>
       </div>
     );
   };

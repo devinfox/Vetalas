@@ -140,7 +140,11 @@ componentDidMount() {
               }/>
               <Route exact path='/products/:id' render ={(props) => {
                 let product = this.state.products.find(p => p._id === props.match.params.id);
-                return <ProductDetailPage product={product} />
+                return <ProductDetailPage product={product} 
+                user={this.state.user}
+                products={this.state.products}
+                shoppingCart={this.state.shoppingCart}
+                handleRenderCart={this.handleRenderCart} />
               }}
               />
               <Route exact path='/signup' render={(props) => <SignupPage {...props} handleSignup={this.handleSignup} /> } />

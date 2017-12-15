@@ -10,6 +10,7 @@
     border-color: black;
     position: relative;
     text-align: center;
+    align-content: center;
     /* background:url(https://i.imgur.com/fVUSuIq.jpg); */
 }
 
@@ -17,8 +18,10 @@
     font-size: 30px;
 }
 
-img {
+
+.img {
     align-content: center;
+    position: relative;
 }
 
 .h1 {
