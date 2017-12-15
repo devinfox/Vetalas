@@ -25,6 +25,6 @@ I would also like users to leave stars and reviews on products
 
 
 ##How To Start It
-The link to the deployed app is www.vetalas.herokuapp.com. 
+The link to the deployed app is https://vetalas.herokuapp.com/ 
 Simply click the link on the page and sign up and start shopping!
 
