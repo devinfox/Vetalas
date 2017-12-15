@@ -11,6 +11,11 @@ JavaScript
 HTML 
 Materialize
 
+##What still needs to be done
+I still need to implement an admin feature that allows the owner of the site to upload products to the mLab database.
+I would like to implement a websocket.io with techsupport 
+I would also like users to leave stars and reviews on products
+
 ##Screenshots
 ![Imgur](https://i.imgur.com/QwIehKU.png)
 ![Imgur](https://i.imgur.com/zXZJ2Q3.png)
