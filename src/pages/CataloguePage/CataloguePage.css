@@ -1,3 +1,8 @@
+@font-face {
+    font-family: GothamMediumRegular;
+    src: url('./GothamMediumRegular.ttf') format('truetype');
+}
+
 .Catalogue {
     padding-top: 100px;
 }
@@ -5,4 +10,18 @@
 .size {
     max-width: 100%;
     max-height: 100%;
+}
+
+.btn-success {
+    background-color: black;
+    
+}
+
+.btn-success:hover {
+    background-color: rgb(61, 67, 71);
+}
+
+.product-name {
+    font-weight: bold;
+    font-family: GothamMediumRegular;
 }

@@ -1,5 +1,16 @@
+body {
+    background-image: url('https://i.imgur.com/D85CZaJ.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: rgb(61, 67, 71);
+}
 
-
+.image-class {
+    align-content: center;
+    max-height: 200%;
+    max-width: 200%
+}
 @font-face {
     font-family: GothamMediumRegular;
     src: url('GothamMediumRegular.ttf') format('truetype');

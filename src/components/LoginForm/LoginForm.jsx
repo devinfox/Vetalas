@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
+import './LoginForm.css';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -33,10 +34,10 @@ class LoginForm extends Component {
     return (
       <div>
         <header className="header-footer">Log In</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
+        <form className="form-horizontal" onSubmit={this.handleSubmit} autoComplete="off" >
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+              <input type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} autoComplete="off"/>
             </div>
           </div>
           <div className="form-group">

@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './CataloguePage.css';
 // import ShoppingCart from '../../components/ShoppingCart/ShoppingCart'
 import {Link} from 'react-router-dom'; 
-import {Row, Card, Col} from 'react-materialize'
+import {Row, Card, Col} from 'react-materialize';
+import Center from 'react-center';
 //make sure componeent can render when this.state.movies = []; aka before we make the api call for movies
 //component did mount method
 // call the getMovies() method within componentDidMount, which updates state with mock data from api|
@@ -19,10 +20,12 @@ const CataloguePage = (props) => {
                 <Col m={4}>
                   <Card key={idx}>
                     <Link to={`/products/${product._id}`}>
-                      {product.name}<img className="size" src={product.image}/>
+                      <p class="product-name">{product.name}</p><img className="size" src={product.image}/>
                     </Link>
                     {product.description}
-                    {props.user ? <button onClick={() => {props.shoppingCart.push(product); props.handleRenderCart()}} className="btn btn-success">Add to Cart</button> : <Link to="/login" className="btn btn-danger">Login</Link>}
+                    <Center>
+                    {props.user ? <button class="button" onClick={() => {props.shoppingCart.push(product); props.handleRenderCart()}} className="btn btn-success">Add to Cart</button> : <Link to="/login" className="btn btn-danger">Login</Link>}
+                    </Center>
                   </Card>
                 </Col>)
                 }

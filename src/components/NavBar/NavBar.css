@@ -1,7 +1,13 @@
+@font-face {
+    font-family: GothamMediumRegular;
+    src: url('./GothamMediumRegular.ttf') format('truetype');
+}
+
 .brand-logo {
-    right: 90%
+    right: 90%;
+    font-family: GothamMediumRegular;
 }
 
 .nav-wrapper {
-    background-color: rgba(184, 58, 131, .4)
+    background: black;
 }

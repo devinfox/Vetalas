@@ -151,7 +151,7 @@ class App extends Component {
               <Route exact path='/login' render={(props) => <LoginPage {...props} handleLogin={this.handleLogin} /> } />
               <Route exact path='/checkout' render={(props) => this.state.user ? <CheckoutPage
                  getQuantity={this.getQuantity}
-                 cart={this.state.shoppingCart}  
+                 cart={this.state.cart}  
                  user={this.state.user}
                  products={this.state.products}
                  delete={this.delete}

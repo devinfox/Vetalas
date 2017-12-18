@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from 'react-materialize';
 import './NavBar.css';
+import Center from 'react-center';
 
 const NavBar = (props) => {
     let nav = props.user ?
@@ -10,7 +11,10 @@ const NavBar = (props) => {
     <div className="nav-wrapper">
       <a href="/" className="brand-logo">VETALA</a>
       <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+      <Center>
       <span>WELCOME, {(props.user.name).toUpperCase()}</span>
+      </Center>
+      
       <ul className="right hide-on-med-and-down">
         <li><Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link></li>
         <li><Link to="/checkout" className='Cart'>🛍</Link></li>

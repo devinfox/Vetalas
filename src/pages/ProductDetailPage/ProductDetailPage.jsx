@@ -40,4 +40,3 @@ class ProductDetailPage extends Component {
 }
 
 export default ProductDetailPage;
-

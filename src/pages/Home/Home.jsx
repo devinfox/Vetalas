@@ -15,9 +15,10 @@ const Home = () => {
                 <br/><br/>
                 <div>
                 <Center>
-                    <img className="medium-size" src="https://i.imgur.com/rWp7mok.jpg"/>
+                <Link to="/catalogue" className="image-class">
+                    <img src="https://i.imgur.com/1YqtKu9.jpg"/>
+                    </Link>
                 </Center>
-                    <Button><Link className="button-color" to="/catalogue">Shop now!</Link></Button>
                 </div>
                 </Col>
                 <Col m={4}></Col>
