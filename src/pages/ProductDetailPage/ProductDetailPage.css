@@ -15,6 +15,10 @@
     justify-content: space-between;
 }
 
-img {
-    size: 500px;
+.imgsize {
+   width: 50%;
+}
+
+.product-description {
+    background-color: white;
 }

@@ -17,3 +17,8 @@
     height: 400px;
     width: auto;
 }
+
+.checkout {
+    background-color: rgba(255,255,255,.5);
+    position: relative;
+}
